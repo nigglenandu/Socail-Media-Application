@@ -17,7 +17,7 @@ public class UserProfileImpl implements IServiceUserProfile{
     }
 
     @Override
-    public Optional<UserProfile> findById(Long userId) {
+    public Optional<UserProfile> findByUserId(Long userId) {
         return userProfileRepository.findByUserId(userId);
     }
 

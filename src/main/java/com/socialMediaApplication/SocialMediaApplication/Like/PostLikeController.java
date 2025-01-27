@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/likes")
-public class LikeController {
+public class PostLikeController {
 
     @Autowired
     private IServiceLike serviceLike;
 
     @PostMapping("/create")
-    public ResponseEntity<Like> createLike(@RequestBody Like like){
+    public ResponseEntity<PostLike> createLike(@RequestBody PostLike like){
         return new ResponseEntity<>(serviceLike.save(like), HttpStatus.CREATED);
     }
 

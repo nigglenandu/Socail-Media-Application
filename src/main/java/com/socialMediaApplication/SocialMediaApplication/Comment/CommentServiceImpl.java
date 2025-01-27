@@ -3,7 +3,7 @@ package com.socialMediaApplication.SocialMediaApplication.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.stream.events.Comment;
+
 import java.util.List;
 import java.util.Optional;
 

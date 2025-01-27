@@ -1,6 +1,6 @@
 package com.socialMediaApplication.SocialMediaApplication.Post;
 
-import com.socialMediaApplication.SocialMediaApplication.User.User;
+import com.socialMediaApplication.SocialMediaApplication.User.AppUser;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -20,7 +20,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name  = "user_id")
-    private User user;
+    private AppUser user;
 
     public @NotNull(message = "Content is mandatory") String getContent() {
         return content;
@@ -46,11 +46,11 @@ public class Post {
         this.timeStamp = timeStamp;
     }
 
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
 }

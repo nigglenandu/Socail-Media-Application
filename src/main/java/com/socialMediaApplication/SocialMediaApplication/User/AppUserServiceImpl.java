@@ -6,18 +6,18 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements IServiceUser {
+public class AppUserServiceImpl implements IServiceUser {
 
     @Autowired
-    private UserRepository userRepository;
+    private AppUserRepository userRepository;
 
     @Override
-    public User save(User user) {
+    public AppUser save(AppUser user) {
         return userRepository.save(user);
     }
 
     @Override
-    public Optional<User> findByUsernameOrEmail(String username, String email) {
+    public Optional<AppUser> findByUsernameOrEmail(String username, String email) {
         return userRepository.findByUsernameOrEmail(username, email);
     }
 }

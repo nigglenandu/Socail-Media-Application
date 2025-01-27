@@ -1,6 +1,6 @@
 package com.socialMediaApplication.SocialMediaApplication.Like;
 
 public interface IServiceLike {
-    Like save(Like like);
+    PostLike save(PostLike like);
     Long countByPostId(Long postId);
 }

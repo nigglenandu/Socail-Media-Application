@@ -1,11 +1,11 @@
 package com.socialMediaApplication.SocialMediaApplication.Like;
 
 import com.socialMediaApplication.SocialMediaApplication.Post.Post;
-import com.socialMediaApplication.SocialMediaApplication.User.User;
+import com.socialMediaApplication.SocialMediaApplication.User.AppUser;
 import jakarta.persistence.*;
 
 @Entity
-public class Like {
+public class PostLike {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ public class Like {
 
     @ManyToOne
     @JoinColumn(name = "User_id", referencedColumnName = "id")
-    private User user;
+    private AppUser user;
 
     @ManyToOne
     @JoinColumn(name = "post_id", referencedColumnName = "id")
@@ -36,11 +36,11 @@ public class Like {
         this.post = post;
     }
 
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
 }

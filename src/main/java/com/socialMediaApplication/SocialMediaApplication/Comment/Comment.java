@@ -1,14 +1,14 @@
 package com.socialMediaApplication.SocialMediaApplication.Comment;
 
 import com.socialMediaApplication.SocialMediaApplication.Post.Post;
-import com.socialMediaApplication.SocialMediaApplication.User.User;
+import com.socialMediaApplication.SocialMediaApplication.User.AppUser;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
 @Entity
-public class Commemt {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Commemt {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    private AppUser user;
 
     @ManyToOne
     @JoinColumn(name = "post_id", referencedColumnName = "id")
@@ -59,11 +59,11 @@ public class Commemt {
         this.timeStamp = timeStamp;
     }
 
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
 }

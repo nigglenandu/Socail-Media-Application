@@ -1,6 +1,6 @@
 package com.socialMediaApplication.SocialMediaApplication.UserProfile;
 
-import com.socialMediaApplication.SocialMediaApplication.User.User;
+import com.socialMediaApplication.SocialMediaApplication.User.AppUser;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -22,5 +22,5 @@ public class UserProfile {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private AppUser user;
 }

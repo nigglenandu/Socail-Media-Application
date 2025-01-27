@@ -3,20 +3,19 @@ package com.socialMediaApplication.SocialMediaApplication.Like;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
-public class LikeServiceImpl implements IServiceLike{
+public  class PostLikeServiceImpl implements IServiceLike{
     @Autowired
-    private LikeRepository likeRepository;
+    private PostLikeRepository likeRepository;
 
     @Override
-    public Like save(Like like) {
+    public PostLike save(PostLike like) {
         return likeRepository.save(like);
     }
 
     @Override
-    public Optional<Long> countByPostId(Long postId) {
+    public Long countByPostId(Long postId) {
         return likeRepository.countByPostId(postId);
     }
 }

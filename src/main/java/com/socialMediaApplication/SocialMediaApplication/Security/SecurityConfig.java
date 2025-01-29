@@ -26,7 +26,7 @@ import javax.sql.DataSource;
 @EnableMethodSecurity
 public class SecurityConfig {
     @Autowired
-    private DataSource dataSource;
+    private CustomUserDetailsService customUserDetailsService;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -46,31 +46,8 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(DataSource dataSource){
-        return new JdbcUserDetailsManager(dataSource);
-    }
-
-    @Bean
-    public CommandLineRunner initData(UserDetailsService userDetailsService){
-        return args -> {
-            JdbcUserDetailsManager manager = (JdbcUserDetailsManager) userDetailsService;
-            UserDetails user1 = User.withUsername("user1")
-                    .password(passwordEncoder().encode("password1"))
-                    .roles("USER")
-                    .build();
-
-            UserDetails admin = User.withUsername("admin")
-                    .password(passwordEncoder().encode("adminPass"))
-                    .roles("ADMIN")
-                    .build();
-
-            if(!manager.userExists(user1.getUsername())){
-                manager.createUser(user1);
-            }
-            if(!manager.userExists(admin.getUsername())){
-                manager.createUser(admin);
-            }
-        };
+    public UserDetailsService userDetailsService(){
+        return new customUserDetailsService;
     }
 
     @Bean
